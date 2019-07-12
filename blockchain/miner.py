@@ -44,7 +44,7 @@ def valid_proof(last_proof, proof):
     last_hash = hashlib.sha256(hashed).hexdigest()
     guess = f'{last_proof}{proof}'.encode()
     guess_hash = hashlib.sha256(guess).hexdigest()
-    return guess_hash[:6] == last_hash[6:]
+    return guess_hash[:6] == last_hash[-6:]
 
 
 if __name__ == '__main__':
@@ -73,8 +73,9 @@ if __name__ == '__main__':
         # Get the last proof from the server
         r = requests.get(url=node + "/last_proof")
         data = r.json()
+        print(data)
         new_proof = proof_of_work(data.get('proof'))
-
+        print(new_proof)
         post_data = {"proof": new_proof,
                      "id": id}
 
