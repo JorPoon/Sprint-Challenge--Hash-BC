@@ -24,6 +24,7 @@ def get_indices_of_item_weights(weights, length, limit):
 
 
     s = []
+    
 
     for i in range(length):
         temp = limit - hash_table_retrieve(ht, i)
@@ -32,7 +33,15 @@ def get_indices_of_item_weights(weights, length, limit):
         if temp in weights:
             s.append(i)
     
-    s.sort(reverse = True)
+    s.reverse()
+    # s.sort(reverse = True)
+    # while s:
+    #     maximum = s[0]
+    #     for j in s:
+    #         if j > maximum:
+    #             maximum = j
+    #     t.append(maximum)
+    #     s.remove(maximum)
     return s
             # for j in range(length):
             #     if weights[j] == temp and temp != None: 
