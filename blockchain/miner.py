@@ -42,7 +42,7 @@ def valid_proof(last_proof, proof):
     # TODO: Your code here!
     hashed = f'{last_proof}'.encode()
     last_hash = hashlib.sha256(hashed).hexdigest()
-    guess = f'{last_proof}{proof}'.encode()
+    guess = f'{proof}'.encode()
     guess_hash = hashlib.sha256(guess).hexdigest()
     return guess_hash[:6] == last_hash[-6:]
 
